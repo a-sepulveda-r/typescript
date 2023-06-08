@@ -93,4 +93,45 @@ printHello();
 function multiply(a: number, b: number) {
   return a * b;
 }
+const suma = (num1:number, num2:number) => {
+  console.log(num1 + num2);
+}
+ suma(2, 2);
 
+ //Parámetros opcionales
+//Por defecto, TypeScript asumirá que todos los parámetros son obligatorios, pero se pueden marcar explícitamente como opcionales.
+
+// the `?` operator here marks parameter `c` as optional
+function add(a: number, b: number, c?: number) {
+  return a + b + (c || 0);
+}
+
+console.log(add(2, 2, 3));
+console.log(add(2, 2));
+
+//Parámetros predeterminados
+//Para parámetros con valores predeterminados, el valor predeterminado va después de la anotación de tipo:
+function pow(value: number, exponent: number = 10) {
+  return value ** exponent;
+}
+
+console.log(pow(2,3));
+
+//Parámetros con nombre
+//Escribir parámetros con nombre sigue el mismo patrón que escribir parámetros normales.
+
+const divide = ({ dividend, divisor }: { dividend: number, divisor: number }) => (
+   dividend / divisor
+)
+
+console.log(divide({dividend: 10, divisor: 2}));
+
+//Casting es para cambiar el tipo de dato
+
+let x: unknown = 'hello';
+
+console.log((x as string).length);
+
+//Usar <> funciona igual que transmitir con as.
+let x2: unknown = 'aeraeraer';
+console.log((<string>x2).length);
